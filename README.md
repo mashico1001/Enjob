@@ -30,7 +30,7 @@
 日々の仕事の中でタスク管理をする時。
 
 ## 設計書
-<...>
+<https://docs.google.com/spreadsheets/d/12F2xdek-wKlbluuHSsk9djuWrZWSTRBYNnGXLJQvWqo/edit?usp=sharing>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/13GzmvCIdu3cmNMvAHGP1VF0yFAuAHWqJPBqNIUpTKSo/edit?usp=sharing>
