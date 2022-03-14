@@ -1,0 +1,16 @@
+<h1>Enjob！</h1>
+<div class="user_show">
+  ユーザーの情報もろもろ
+</div>
+<div class="task_new">
+  <%= link_to "Taskを作成する", new_task_path %>
+</div>
+<div class="task_index">
+  <% @tasks.each do |task| %>
+    <%= task.text %>
+    〆切
+    <%= task.deadline_at %>
+    重要度
+    <%= task.importance_i18n %>
+  <% end %>
+</div>

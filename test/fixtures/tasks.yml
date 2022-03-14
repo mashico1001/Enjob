@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  text: MyString
+  importance: 1
+  deadline_at: 2022-03-14 09:44:01
+  completion_at: 2022-03-14 09:44:01
+
+two:
+  user_id: 1
+  text: MyString
+  importance: 1
+  deadline_at: 2022-03-14 09:44:01
+  completion_at: 2022-03-14 09:44:01

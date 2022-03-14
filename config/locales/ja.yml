@@ -1,0 +1,7 @@
+ja:
+  enums:
+    task:
+      importance:
+        middle: 'ふつう'
+        high: 'やばい'
+        low: 'ぜんぜん'
