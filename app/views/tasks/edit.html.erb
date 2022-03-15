@@ -1,0 +1,27 @@
+<h2>タスク編集画面</h2>
+<%= form_with model: @task, url: task_path, local: true do |f| %>
+<table class="task_edit">
+  <tr><th><%= f.label :text, "Task" %></th><td><%= f.text_field :text %></td></tr>
+  <tr>
+    <th><%= f.label :deadline_at, "〆切" %></th>
+    <td><%= f.datetime_field :deadline_at %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :importance, "重要度" %></th>
+    <td><%= f.radio_button :importance, "high" %>
+        <%= f.label :importance, Task.importances_i18n[:high] %>
+        <%= f.radio_button :importance, "middle", :checked => true %>
+        <%= f.label :importance, Task.importances_i18n[:middle] %>
+        <%= f.radio_button :importance, "low" %>
+        <%= f.label :importance, Task.importances_i18n[:low] %>
+    </td>
+  </tr>
+  <tr><th>
+    <%= f.submit "OK", class: "submit_to_task" %>
+  </th>
+  <td>
+    <%= link_to "DELETE", task_path(@task), method: :delete %>
+  </td>
+  </tr>
+</table>
+<% end %>

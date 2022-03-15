@@ -12,5 +12,7 @@
     <%= task.deadline_at %>
     重要度
     <%= task.importance_i18n %>
+    <%= link_to "EDIT", edit_task_path(task) %>
+    <%= link_to "DELETE", task_path(task), method: :delete %>
   <% end %>
 </div>
