@@ -1,18 +1,26 @@
 <h1>Enjob！</h1>
-<div class="user_show">
-  ユーザーの情報もろもろ
+<div class="user_show_container">
+  <div class="user_show_flex-item"><%= attachment_image_tag @user, :image, class: "icon" %></div>
+  <div class="user_show_flex-item">
+    <%= @user.name %>さん</br>
+    ○○レベル、肩書き</br>
+    <%= link_to "編集", edit_user_path(@user) %>
+  </div>
 </div>
 <div class="task_new">
   <%= link_to "Taskを作成する", new_task_path %>
 </div>
-<div class="task_index">
+
+<div class="task_index_container">
   <% @tasks.each do |task| %>
-    <%= task.text %>
-    〆切
-    <%= task.deadline_at %>
-    重要度
-    <%= task.importance_i18n %>
-    <%= link_to "EDIT", edit_task_path(task) %>
-    <%= link_to "DELETE", task_path(task), method: :delete %>
+    <div class="task-box">
+        <%= task.text %></br>
+        〆切
+        <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
+        重要度
+        <%= task.importance_i18n %></br>
+        <%= link_to "EDIT", edit_task_path(task) %>
+        <%= link_to "DELETE", task_path(task), method: :delete %>
+    </div>
   <% end %>
 </div>

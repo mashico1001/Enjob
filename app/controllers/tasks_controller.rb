@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all #最終的にはcurrent_userだけのtask一覧にしたい…
+    @tasks = current_user.tasks #最終的にはcurrent_userだけのtask一覧にしたい…
+    @user = current_user
   end
 
   def new
