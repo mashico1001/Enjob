@@ -5,3 +5,15 @@ ja:
         middle: 'ふつう'
         high: 'やばい'
         low: 'ぜんぜん'
+    user:
+      job_status:
+        level1: 'れべる１'
+        level2: 'れべる２'
+        level3: 'れべる３'
+        level4: 'れべる４'
+        level5: 'れべる５'
+        level6: 'れべる６'
+        level7: 'れべる７'
+        level8: 'れべる８'
+        level9: 'れべる９'
+        level10: 'れべる１０'

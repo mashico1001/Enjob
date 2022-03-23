@@ -74,3 +74,7 @@ gem "enum_help"
 gem 'jquery-rails', '4.3.3'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"

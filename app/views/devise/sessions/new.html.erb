@@ -8,6 +8,12 @@
     </thead>
     <tbody>
       <tr>
+        <td>
+          <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, method: :post %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
         <td><%= f.label :email, "メールアドレス" %></td>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
       </tr>
@@ -31,4 +37,5 @@
       </tr>
     </tbody>
   </table>
+<% end %>
 <%= render "devise/shared/links" %>

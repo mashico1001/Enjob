@@ -3,7 +3,8 @@
   <div class="user_show_flex-item"><%= attachment_image_tag @user, :image, class: "icon" %></div>
   <div class="user_show_flex-item">
     <%= @user.name %>さん</br>
-    ○○レベル、肩書き</br>
+    レベル<%= @user.level %><br>
+    <%= @user.job_status_i18n %></br>
     <%= link_to "編集", edit_user_path(@user) %>
   </div>
 </div>
@@ -11,16 +12,33 @@
   <%= link_to "Taskを作成する", new_task_path %>
 </div>
 
-<div class="task_index_container">
-  <% @tasks.each do |task| %>
-    <div class="task-box">
+<div class="task">
+  
+  <div class="task_index_container">
+    <h4>Todo</h4>
+    <% @tasks.each do |task| %>
+      <div class="task-box">
+          <%= task.text %></br>
+          〆切
+          <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
+          重要度
+          <%= task.importance_i18n %></br>
+          <%= link_to "EDIT", edit_task_path(task) %>
+          <%= link_to "DELETE", task_path(task), method: :delete %>
+          <%= button_to 'Done', done_path(task), method: :post, class: 'done-btn' %>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="done-task_index_container">
+  <h4>Done</h4>
+    <% @tasks_done.each do |task| %>
+      <div class="done-task">
         <%= task.text %></br>
-        〆切
-        <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
         重要度
         <%= task.importance_i18n %></br>
-        <%= link_to "EDIT", edit_task_path(task) %>
-        <%= link_to "DELETE", task_path(task), method: :delete %>
-    </div>
-  <% end %>
+        完了日：<%= task.completion_at.strftime("%Y/%m/%d %H:%M") %>
+      </div>
+    <% end %>
+  </div>
 </div>

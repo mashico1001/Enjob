@@ -6,7 +6,7 @@
   </div>
   <div class="event-form">
     <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :start_time, {default: Date.today + 19.hours + 00.minutes, minute_step: 10} %>
   </div>
   <div class="event-form">
     <%= f.label :description %>

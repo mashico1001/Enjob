@@ -1,0 +1,2 @@
+class LevelSet < ApplicationRecord
+end

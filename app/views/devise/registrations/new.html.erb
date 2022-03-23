@@ -16,6 +16,9 @@
         <td><%= f.label :email, "メールアドレス" %></td>
         <td><%= f.email_field :email, autocomplete: "email" %></td>
       </tr>
+      <% if @sns_id.present? %>
+        <%= hidden_field_tag :sns_auth, true %>
+      <% else %>
       <tr>
         <td>
           <%= f.label :password, "パスワード" %>
@@ -31,6 +34,7 @@
         <td><%= f.label :password_confirmation, "パスワード確認用" %></td>
         <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
       </tr>
+      <% end %>
       <tr>
         <td></td>
         <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
