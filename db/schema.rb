@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_23_104251) do
+ActiveRecord::Schema.define(version: 2022_04_05_092901) do
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
-    t.datetime "start_date"
-    t.datetime "end_date"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+# Could not dump table "events" because of following StandardError
+#   Unknown type 'reference' for column 'user_id'
 
   create_table "level_sets", force: :cascade do |t|
     t.integer "level"
@@ -28,15 +28,19 @@ ActiveRecord::Schema.define(version: 2022_03_23_104251) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "text", null: false
-    t.integer "importance", default: 0, null: false
-    t.datetime "deadline_at", null: false
-    t.datetime "completion_at"
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "task_id"
+    t.integer "kind"
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_notifications_on_task_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
+
+# Could not dump table "tasks" because of following StandardError
+#   Unknown type 'reference' for column 'category_id'
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

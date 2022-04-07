@@ -3,17 +3,45 @@
   <div class="user_show_flex-item"><%= attachment_image_tag @user, :image, class: "icon" %></div>
   <div class="user_show_flex-item">
     <%= @user.name %>さん</br>
-    レベル<%= @user.level %><br>
+    Lv.<%= @user.level %><br>
     <%= @user.job_status_i18n %></br>
     <%= link_to "編集", edit_user_path(@user) %>
   </div>
+   <div class="user_show_flex_item">
+    <a href="#modal-03">
+    カテゴリ追加
+    </a>
+    <% @categories.each do |category| %>
+      <%= category.name %>
+    <% end %>
+  </div>
 </div>
+
+<div class="modal-wrapper" id="modal-03">
+  <a href="#!" class="modal-overlay"></a>
+  <div class="modal-window">
+    <div class="modal-content">
+     ★カテゴリー一覧</br>
+    <%= form_with model: @category, url: categories_path do |f| %>
+     <div class="form">
+       <%= f.label :name %>
+       <%= f.text_field :name, required: true %>
+     </div>
+       <%= f.submit "登録" %>
+    <% end %>
+    </div>
+    <a href="#!" class="modal-close">×</a>
+  </div>
+</div>
+
+
+
 <div class="task_new">
   <%= link_to "Taskを作成する", new_task_path %>
 </div>
 
 <div class="task">
-  
+
   <div class="task_index_container">
     <h4>Todo</h4>
     <% @tasks.each do |task| %>
@@ -27,9 +55,23 @@
           <%= link_to "DELETE", task_path(task), method: :delete %>
           <%= button_to 'Done', done_path(task), method: :post, class: 'done-btn' %>
       </div>
-    <% end %>
+    <% end %></br>
+      <h4>期限切れ</h4>
+        <% @tasks_expired.each do |task| %>
+          <div class="expired-task">
+            <%= task.text %></br>
+             〆切
+            <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
+            重要度
+            <%= task.importance_i18n %></br>
+            <%= link_to "EDIT", edit_task_path(task) %>
+            <%= link_to "DELETE", task_path(task), method: :delete %>
+            <%= button_to 'Done', done_path(task), method: :post, class: 'done-btn' %>
+          </div>
+        <% end %>
   </div>
-  
+
+
   <div class="done-task_index_container">
   <h4>Done</h4>
     <% @tasks_done.each do |task| %>

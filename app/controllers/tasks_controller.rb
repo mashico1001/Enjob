@@ -2,8 +2,28 @@ class TasksController < ApplicationController
 
   def index
     @user = current_user
-    @tasks = @user.tasks.where(completion_at:nil).order(:deadline_at) #最終的にはcurrent_userだけのtask一覧にしたい…
+    @tasks = @user.tasks.where(completion_at:nil).where("deadline_at >= ?", Time.now).order(:deadline_at)
     @tasks_done = @user.tasks.where.not(completion_at:nil)
+
+    @tasks_expired = @user.tasks.where(completion_at:nil).where("deadline_at <= ?", Time.now)
+
+    @categories = Category.all
+    if params[:id].present?
+      @category = Category.find(params[:id])
+    else
+      @category = Category.new
+    end
+
+    @notifications = current_user.notifications
+    @notifications.where(checked: false).each do |notification|
+      notification.update(checked: true)
+    end
+  end
+
+  def sort
+    @task = Task.find(params[:task_id])
+    @task.update(task_params)
+    render nothing: true
   end
 
   def new
@@ -13,20 +33,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
-    
-    @totalExp = current_user.experience_point
-    
-      if params[:task][:importance] == "0"
-        @totalExp += 10
-      elsif params[:task][:importance] == "1"
-        @totalExp += 15
-      elsif params[:task][:importance] == "2"
-        @totalExp += 5
-      else
-      end
-    current_user.experience_point = @totalExp
-    current_user.update(experience_point: @totalExp)
-    
+
     @task.save
     redirect_to tasks_path
   end
@@ -49,10 +56,21 @@ class TasksController < ApplicationController
   end
 
   def done
-    @today = Date.today
+    @now = Time.now
     @task = Task.find(params[:id])
-    
     @totalExp = current_user.experience_point
+
+      if@task.importance == "middle"
+        @totalExp += 10
+      elsif @task.importance == "high"
+        @totalExp += 15
+      elsif @task.importance == "low"
+        @totalExp += 5
+      else
+      end
+
+    current_user.experience_point = @totalExp
+    current_user.update(experience_point: @totalExp)
 
 
     @level_set = LevelSet.find_by(level: current_user.level + 1)
@@ -62,7 +80,29 @@ class TasksController < ApplicationController
       current_user.update(level: current_user.level)
     end
 
-    @task.update(completion_at: @today)
+    if current_user.level == 2
+      current_user.update(job_status: "level2")
+    elsif current_user.level == 3
+      current_user.update(job_status: "level3")
+    elsif current_user.level == 4
+      current_user.update(job_status: "level4")
+    elsif current_user.level == 5
+      current_user.update(job_status: "level5")
+    elsif current_user.level == 6
+      current_user.update(job_status: "level6")
+    elsif current_user.level == 7
+      current_user.update(job_status: "level7")
+    elsif current_user.level == 8
+      current_user.update(job_status: "level8")
+    elsif current_user.level == 9
+      current_user.update(job_status: "level9")
+    elsif current_user.level == 10
+      current_user.update(job_status: "level10")
+    else
+    end
+
+
+    @task.update(completion_at: @now)
     redirect_to :action => "index"
   end
 

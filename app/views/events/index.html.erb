@@ -1,1 +1,33 @@
 <div id="calendar"></div>
+
+
+<div class="modal-wrapper" id="modal-01">
+  <a href="#!" class="modal-overlay"></a>
+  <div class="modal-window">
+    <div class="modal-content">
+      <h1>新規イベント追加</h1>
+      <%= form_with model: @event, url: events_path do |f| %>
+      <div class="event-form">
+        <%= f.label :title %>
+        <%= f.text_field :title, required: true %>
+      </div>
+      <div class="event-form">
+        <%= f.label :body %>
+        <%= f.text_area :body, required: true %>
+      </div>
+      <div class="event-form">
+        <%= f.label :start_date %>
+        <%= f.time_field :start_date %>
+      </div>
+      <div class="event-form">
+        <%= f.label :end_date %>
+        <%= f.time_field :end_date %>
+      </div>
+        <%= f.hidden_field :date %>
+        <%= f.submit "登録" %>
+      <% end %>
+    </div>
+    <a href="#!" class="modal-close">×</a>
+  </div>
+</div>
+

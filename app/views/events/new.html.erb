@@ -3,14 +3,17 @@
   <div class="event-form">
     <%= f.label :title %>
     <%= f.text_field :title, required: true %>
+  <div class="event-form">
+    <%= f.label :body %>
+    <%= f.text_area :body, required: true %>
   </div>
   <div class="event-form">
-    <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
+    <%= f.label :start_date %>
+    <%= f.datetime_select :start_date, {default: Date.today + 19.hours + 00.minutes, minute_step: 10} %>
   </div>
   <div class="event-form">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.label :end_date %>
+    <%= f.datetime_select :end_date, {default: Date.today + 19.hours + 00.minutes, minute_step: 10} %>
   </div>
     <%= f.submit "登録" %>
-  <% end %>
+<% end %>

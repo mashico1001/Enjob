@@ -8,12 +8,7 @@
   </tr>
   <tr>
     <th><%= f.label :importance, "重要度" %></th>
-    <td><%= f.radio_button :importance, "high" %>
-        <%= f.label :importance, Task.importances_i18n[:high] %>
-        <%= f.radio_button :importance, "middle", :checked => true %>
-        <%= f.label :importance, Task.importances_i18n[:middle] %>
-        <%= f.radio_button :importance, "low" %>
-        <%= f.label :importance, Task.importances_i18n[:low] %>
+    <td><%= f.collection_radio_buttons :importance, Task.importances_i18n, :first, :last %>
     </td>
   </tr>
   <tr><th></th><td><%= f.submit "START", class: "submit_to_task" %></td></tr>

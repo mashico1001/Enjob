@@ -78,3 +78,12 @@ gem 'momentjs-rails'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+
+gem 'jquery-ui-rails'
+gem 'ranked-model'
+
+gem 'pry-rails'
+
+gem 'whenever', require: false
+
+

@@ -15,6 +15,8 @@ class User < ApplicationRecord
   
          
   has_many :tasks, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+  has_many :events, dependent: :destroy
   attachment :image
   
   enum job_status: { level1: 0, level2: 1, level3: 2, level4: 3, level5: 4, level6: 5, level7: 6, level8: 7, level9: 8, level10: 9 }

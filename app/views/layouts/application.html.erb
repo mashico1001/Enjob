@@ -5,27 +5,64 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+
   </head>
 
   <body data-turbolinks="false">
-    <header>
-      <% if user_signed_in? %>
-      <div class="header_user_name">
-        <%= current_user.name %>さん、ようこそ！
-      </div>
-      <% end %>
-        <%= link_to "TOP", root_path %>
-      <% if user_signed_in? %>
-        <%= link_to "Task", tasks_path %>
-        <%= link_to "Event" %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "ログイン", new_user_session_path %>
-        <%= link_to "新規登録", new_user_registration_path %>
-      <% end %>
+
+    <header id = "global-head">
+      <h1 id="brand-logo">Enjob</h1>
     </header>
-    <%= yield %>
+
+    <div id="nav-toggle">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <aside id="sidebar">
+      <nav id="global-nav">
+        <% if user_signed_in? %>
+        <ul>
+          <li><%= current_user.name %>さん</li>
+          <li><%= attachment_image_tag current_user, :image, class: "icon" %></li>
+        <% end %>
+          <li><%= link_to "TOP", root_path %></li>
+        <% if user_signed_in? %>
+          <li><% if unchecked_notifications.any? %>
+                <span class="notification-icon">★</span>
+              <% end %>
+              <%= link_to "Task", tasks_path %>
+          </li>
+          <li><%= link_to "Event", events_path %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <% end %>
+          <br>
+        </ul>
+      </nav>
+    </aside>
+
+    <main id="main">
+      <div id="main-in">
+        <div id="main-visual">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
+    <div id="overlay"></div>
   </body>
 </html>
