@@ -2,17 +2,18 @@ class TasksController < ApplicationController
 
   def index
     @user = current_user
+
+    @level_set = LevelSet.find_by(level: current_user.level + 1)
+    @thresold = @level_set.thresold
+
     @tasks = @user.tasks.where(completion_at:nil).where("deadline_at >= ?", Time.now).order(:deadline_at)
-    @tasks_done = @user.tasks.where.not(completion_at:nil)
+    @tasks_done = @user.tasks.where.not(completion_at:nil).page(params[:page]).per(5)
 
     @tasks_expired = @user.tasks.where(completion_at:nil).where("deadline_at <= ?", Time.now)
 
     @categories = Category.all
-    if params[:id].present?
-      @category = Category.find(params[:id])
-    else
-      @category = Category.new
-    end
+    @category = Category.new
+
 
     @notifications = current_user.notifications
     @notifications.where(checked: false).each do |notification|
@@ -34,8 +35,11 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = current_user.id
 
-    @task.save
-    redirect_to tasks_path
+    if @task.save
+      redirect_to tasks_path
+    else
+      render :new
+    end
   end
 
   def edit

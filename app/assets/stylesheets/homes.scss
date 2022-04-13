@@ -1,3 +1,59 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.top {
+
+  font-size: 6rem;
+  color: lightsteelblue;
+  margin-bottom: 20px;
+}
+
+.title-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.top-img {
+  width: 250px;
+  height: 250px;
+  box-shadow: 2px 5px 8px #bbb;
+  object-fit: cover;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  margin: 2rem;
+}
+
+.top-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.top-item {
+  display: none;
+  margin: 2em auto;
+  padding: 1em;
+  width: 70%;
+  background-color: white; /* 背景色 */
+  box-shadow: 0 0 5px 1px #ccc; /* 影 */
+}
+
+.top-item > p {
+  color: lightsteelblue;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.c-marker {
+    background: -webkit-linear-gradient(left, rgba(55,168,184,0.4) 50%, transparent 50%);
+    background: -moz-linear-gradient(left, rgba(55,168,184,0.4) 50%, transparent 50%);
+    background: linear-gradient(left, rgba(55,168,184,0.4) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-size: 200% .8em;
+    background-position: 100% .5em;
+    transition: 2s;
+}
+.c-marker.is-active{
+    background-position: 0% .5em;
+}

@@ -41,7 +41,7 @@ $(function () {
                 //イベントの時間表示を２４時間に
                 timeFormat: "HH:mm",
                 //イベントの色を変える
-                eventColor: '#87cefa',
+                eventColor: '#d8bfd8',
                 //イベントの文字色を変える
                 eventTextColor: '#000000',
                 eventRender: function(event, element) {
@@ -70,4 +70,24 @@ $(function () {
       $('body').toggleClass('open');
     });
   });
+});
+
+
+$(function() {
+	$('body').fadeIn(1000); //1秒かけてフェードイン！
+});
+
+$(function() {
+	$('.top-item').fadeIn(2000); //1秒かけてフェードイン！
+});
+
+$(window).scroll(function (){
+    $(".js-markerScrollAnimation").each(function(){
+      var position = $(this).offset().top; //ページの一番上から要素までの距離を取得
+      var scroll = $(window).scrollTop(); //スクロールの位置を取得
+      var windowHeight = $(window).height(); //ウインドウの高さを取得
+      if (scroll > position - windowHeight){ //スクロール位置が要素の位置を過ぎたとき
+        $(this).addClass('is-active'); //クラス「active」を与える
+      }
+    });
 });

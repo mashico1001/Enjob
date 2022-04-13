@@ -86,4 +86,4 @@ gem 'pry-rails'
 
 gem 'whenever', require: false
 
-
+gem 'kaminari'

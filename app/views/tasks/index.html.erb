@@ -1,10 +1,14 @@
-<h1>Enjob！</h1>
+<h1 style="font-size: 5rem;
+    color: pink;
+">Enjob</h1>
 <div class="user_show_container">
   <div class="user_show_flex-item"><%= attachment_image_tag @user, :image, class: "icon" %></div>
   <div class="user_show_flex-item">
     <%= @user.name %>さん</br>
     Lv.<%= @user.level %><br>
     <%= @user.job_status_i18n %></br>
+    <%=@user.experience_point %>/<%= @thresold %></br>
+
     <%= link_to "編集", edit_user_path(@user) %>
   </div>
    <div class="user_show_flex_item">
@@ -66,7 +70,7 @@
             <%= task.importance_i18n %></br>
             <%= link_to "EDIT", edit_task_path(task) %>
             <%= link_to "DELETE", task_path(task), method: :delete %>
-            <%= button_to 'Done', done_path(task), method: :post, class: 'done-btn' %>
+            <%= link_to "DONE", done_path(task), method: :post, class: 'btn-done' %>
           </div>
         <% end %>
   </div>
@@ -82,5 +86,6 @@
         完了日：<%= task.completion_at.strftime("%Y/%m/%d %H:%M") %>
       </div>
     <% end %>
+  <%= paginate @tasks_done %>
   </div>
 </div>

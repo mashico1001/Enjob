@@ -1,4 +1,11 @@
 <h1>Task新規作成画面</h1>
+<% if @task.errors.any? %>
+  <%= @task.errors.count %>件のエラーが発生しました。
+  <% @task.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <%= form_with model: @task, url: tasks_path, local: true do |f| %>
 <table class="task_new">
   <tr><th><%= f.label :text, "Task" %></th><td><%= f.text_field :text %></td></tr>

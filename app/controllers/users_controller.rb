@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index #ランキング用
+    @users = User.all.order(level: :DESC)
   end
 
   def edit
