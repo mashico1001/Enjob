@@ -8,25 +8,25 @@
     <%= @user.job_status_i18n %>
 
     <% if @user.level == 1 %>
-      <%= image_tag '毛虫アイコン.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('毛虫アイコン.png'), class: 'job_status-img' %>
     <% elsif @user.level == 2 %>
-      <%= image_tag 'ネズミのアイコン1.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('ネズミのアイコン1.png'), class: 'job_status-img' %>
     <% elsif @user.level == 3 %>
-      <%= image_tag '118000.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('118000.png'), class: 'job_status-img' %>
     <% elsif @user.level == 4 %>
-      <%= image_tag '猫の無料アイコン2.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('猫の無料アイコン2.png'), class: 'job_status-img' %>
     <% elsif @user.level == 5 %>
-      <%= image_tag '馬アイコン3.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('馬アイコン3.png'), class: 'job_status-img' %>
     <% elsif @user.level == 6 %>
-      <%= image_tag 'キリンアイコン3.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('キリンアイコン3.png'), class: 'job_status-img' %>
     <% elsif @user.level == 7 %>
-      <%= image_tag 'ライオンの無料アイコン2.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('ライオンの無料アイコン2.png'), class: 'job_status-img' %>
     <% elsif @user.level == 8 %>
-      <%= image_tag 'ユニコーンのアイコン1.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('ユニコーンのアイコン1.png'), class: 'job_status-img' %>
     <% elsif @user.level == 9 %>
-      <%= image_tag '130653.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('130653.png'), class: 'job_status-img' %>
     <% elsif @user.level == 10 %>
-      <%= image_tag '2272915.png', class: 'job_status-img' %>
+      <%= image_tag asset_path('2272915.png'), class: 'job_status-img' %>
     <% else %>
     <% end %>
 
@@ -55,10 +55,10 @@
      <h1>Taskの使い方</h1>
 
       <div class="task-info">
-        <%= image_tag 'デスクワークアイコン.png', class: 'task-img' %>
+        <%= image_tag asset_path('デスクワークアイコン.png'), class: 'task-img' %>
         <div>まずは<span class="c-marker-task">NewTask</span>から新規作成！</div>
 
-        <%= image_tag '〆切のアイコン.png', class: 'task-img' %>
+        <%= image_tag asset_path('〆切のアイコン.png'), class: 'task-img' %>
         <div>
           それぞれのタスクには<span class="c-marker-task">〆切と重要度</span>が設定できます！</br>
           重要度は「やばい」「ふつう」「ぜんぜん」から選択。</br>
@@ -66,7 +66,7 @@
         </div>
       </div>
       <div class="task-info">
-        <%= image_tag 'ポイントアイコン.png', class: 'task-img' %>
+        <%= image_tag asset_path('ポイントアイコン.png'), class: 'task-img' %>
         <div>
           タスクの重要度にあわせてポイントをGET！</br>
           <span class="c-marker-task">「やばい」→　15 Pt !</br>
@@ -74,7 +74,7 @@
           「ぜんぜん」→　5 Pt</span></br>
         </div>
 
-        <%= image_tag '出世アイコン2.png', class: 'task-img' %>
+        <%= image_tag asset_path('出世アイコン2.png'), class: 'task-img' %>
         <div>
           貯めたPtに応じて、<span class="c-marker-task">Lvがアップします！</span></br>
           <span class="c-marker-task">毎日のタスク処理が、少しでも楽しくなりますように…</span></br>
