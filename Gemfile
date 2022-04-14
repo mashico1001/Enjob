@@ -87,3 +87,7 @@ gem 'pry-rails'
 gem 'whenever', require: false
 
 gem 'kaminari'
+
+group :production do
+  gem 'mysql2'
+end
