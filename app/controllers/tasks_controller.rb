@@ -5,15 +5,12 @@ class TasksController < ApplicationController
 
     @level_set = LevelSet.find_by(level: current_user.level + 1)
     @thresold = @level_set.thresold
+    @progress_min = LevelSet.find_by(level: current_user.level).thresold
 
     @tasks = @user.tasks.where(completion_at:nil).where("deadline_at >= ?", Time.now).order(:deadline_at)
     @tasks_done = @user.tasks.where.not(completion_at:nil).page(params[:page]).per(5)
 
     @tasks_expired = @user.tasks.where(completion_at:nil).where("deadline_at <= ?", Time.now)
-
-    @categories = Category.all
-    @category = Category.new
-
 
     @notifications = current_user.notifications
     @notifications.where(checked: false).each do |notification|

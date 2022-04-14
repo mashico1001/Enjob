@@ -1,21 +1,23 @@
- <h1>イベント編集画面</h1>
- <%= form_with model: @event, url: event_path(@event) do |f| %>
-      <div class="event-form">
-        <%= f.label :title %>
-        <%= f.text_field :title, required: true %>
-      </div>
-      <div class="event-form">
-        <%= f.label :body %>
-        <%= f.text_area :body, required: true %>
-      </div>
-      <div class="event-form">
-        <%= f.label :start_date %>
-        <%= f.time_field :start_date %>
-      </div>
-      <div class="event-form">
-        <%= f.label :end_date %>
-        <%= f.time_field :end_date %>
-      </div>
-        <%= f.hidden_field :date, :value => @event.start_date.to_date %>
-        <%= f.submit "更新" %>
-<% end %>
+ <div class="event-edit">
+   <h1 class="event-edit-h1">EventEdit</h1>
+   <%= form_with model: @event, url: event_path(@event) do |f| %>
+        <div class="event-form">
+          <%= f.label :title %>
+          <%= f.text_field :title, required: true %>
+        </div>
+        <div class="event-form">
+          <%= f.label :body %>
+          <%= f.text_area :body, required: true %>
+        </div>
+        <div class="event-form">
+          <%= f.label :start_date %>
+          <%= f.time_field :start_date %>
+        </div>
+        <div class="event-form">
+          <%= f.label :end_date %>
+          <%= f.time_field :end_date %>
+        </div>
+          <%= f.hidden_field :date, :value => @event.start_date.to_date %>
+          <%= f.submit "Update", class: 'btn-event-update' %>
+  <% end %>
+ </div>

@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update]
 
   resources :tasks, except: [:show]
-  
+
   resources :notifications, only: [:index]
-  
-  resources :categories, only: [:index, :create, :edit, :update, :destroy]
+
+
 
   post '/tasks/:id/done' => 'tasks#done', as: 'done'
   resources :events

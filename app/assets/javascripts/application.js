@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+
 
 //= require rails-ujs
 //= require moment
@@ -20,10 +20,12 @@
 //= require turbolinks
 //= require_tree .
 
+
 $(function () {
     // 画面遷移を検知
     $(document).on('turbolinks:load', function () {
         if (!$('#calendar').hasClass('fc')) {
+            console.log(1),
 
 
             //events: '/events.json', 以下に追加
@@ -55,39 +57,35 @@ $(function () {
                   $('#event_date').val(date.format());
                   window.location.hash = 'modal-01';
                 },
-
-                // eventClick: function () {
-                //   window.location.hash = 'modal-02';
-                // },
             });
         }
     });
-});
 
-$(function () {
-  $(function () {
     $('#nav-toggle,#overlay').on('click', function () {
       $('body').toggleClass('open');
     });
-  });
-});
+
+    $(document).on('turbolinks:load', function () {
+
+      $('body').fadeIn(1000); //1秒かけてフェードイン！
+
+      $('.top-item').fadeIn(2000);
+
+    });
 
 
-$(function() {
-	$('body').fadeIn(1000); //1秒かけてフェードイン！
-});
-
-$(function() {
-	$('.top-item').fadeIn(2000); //1秒かけてフェードイン！
-});
-
-$(window).scroll(function (){
-    $(".js-markerScrollAnimation").each(function(){
-      var position = $(this).offset().top; //ページの一番上から要素までの距離を取得
-      var scroll = $(window).scrollTop(); //スクロールの位置を取得
-      var windowHeight = $(window).height(); //ウインドウの高さを取得
-      if (scroll > position - windowHeight){ //スクロール位置が要素の位置を過ぎたとき
-        $(this).addClass('is-active'); //クラス「active」を与える
-      }
+    $(window).scroll(function (){
+        $(".js-markerScrollAnimation").each(function(){
+          var position = $(this).offset().top; //ページの一番上から要素までの距離を取得
+          var scroll = $(window).scrollTop(); //スクロールの位置を取得
+          var windowHeight = $(window).height(); //ウインドウの高さを取得
+          if (scroll > position - windowHeight){ //スクロール位置が要素の位置を過ぎたとき
+            $(this).addClass('is-active'); //クラス「active」を与える
+          }
+        });
     });
 });
+
+
+
+

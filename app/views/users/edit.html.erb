@@ -1,6 +1,17 @@
-<h2>ユーザー情報編集画面</h2>
-<%= form_with model: @user, url: user_path(@user), local: true do |f| %>
-  <%= f.attachment_field :image %>
-  <%= f.text_field :name %>
-  <%= f.submit '更新', class: "user_info_update_btn" %>
-<% end %>
+<div class="user-edit">
+  <h1 class="user-edit-h1">UserEdit</h1>
+  <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
+    <div class="edit-item">
+      <%= f.attachment_field :image %>
+    </div>
+    <div class="edit-item">
+      <%= f.label :name %></br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="edit-item">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+      <%= f.submit 'Update', class: "btn-user-update" %>
+  <% end %>
+</div>

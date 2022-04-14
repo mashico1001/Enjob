@@ -46,46 +46,7 @@ ul {
 
 //ranking
 
-.ranking > table {
-  width: 100%;
-  border-collapse: collapse;
-}
 
-.ranking > table tr {
-  background-image: linear-gradient(40deg,#778899 0%, #fb7ba2 74%);
-}
-
-.ranking > table tr:last-child * {
-  border-bottom: none;
-}
-
-.ranking > table th, .ranking > table td {
-  text-align: center;
-  border: solid 2px #fff;
-  color: white;
-  padding: 10px 0;
-}
-
-
-
-.user_show_container {
-  display: flex;
-  width: 500px;
-  margin: 0 auto;
-}
-
-.user_show_flex-item {
-  width: 100px;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-
-
-.icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
 
 
 
@@ -305,49 +266,8 @@ ul {
     background-color: white !important;
 }
 
-//event関連
-
-.event {
-  position: relative;
-}
-
-.event-form {
-  margin-bottom: 20px;
-  color: palevioletred;
-}
-
-.event-title {
-  font-size: 5rem;
-  color: plum;
-}
-
-.event-date {
-  font-size: 10rem;
-  color: plum;
-  position: absolute;
-  right: 0;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
 
 
-
-a.btn-border {
-  border: 2px solid white;
-  border-color: #d8bfd8;
-  border-radius: 0;
-  background: #fff;
-  padding: 5px;
-  margin-right: 10px;
-}
-
-a.btn-border:hover {
-  color: #fff;
-  background: thistle;
-}
 
 @media screen and (max-width: 900px) {
 

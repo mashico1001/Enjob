@@ -3,6 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.task-h1, .user-edit-h1, .task-new-h1, .task-edit-h1 {
+  font-size: 5rem;
+}
+
+.task-h1 {
+  color: #d7cf3a;
+}
+
+.task-new-h1 {
+  color: #2f5d50;
+}
+
+.user-edit-h1 {
+  color: #aacf53;
+}
+
+.task-info-box > h1 {
+  color: #6b7b6e;
+}
+
+.task-new {
+  color: #3b7960;
+}
+
+.task-edit-h1 {
+  color: #c3d825;
+}
+
 .task {
   display: flex;
 }
@@ -10,30 +38,184 @@
 .task_index_container {
   display: flex;
   flex-direction: column;
+  width: 500px;
 }
+
+.done-task_index_container {
+  width: 500px;
+}
+
+.task_index_container > h4, .done-task_index_container > h4 {
+  color: #68be8d;
+}
+
 
 .task-box, .done-task, .expired-task {
   display: inline-block;
-  margin: 2rem auto;
+  padding: 10px;
+  margin: 20px 20px;
   width: 400px;
-  height: 100px;
+  height: auto;
   border-radius: 10px;
-  background-color: white; /* 背景色 */
-  box-shadow: 0 0 5px 1px #ccc; /* 影 */
+  background-color: #d7cf3a; /* 背景色 */
+  box-shadow: 0 0 5px 1px #c5c56a; /* 影 */
+}
+
+.btn-task-link {
+  display: inline;
+  margin-left: 200px;
+}
+
+//user-info
+
+.user_show_container {
+  display: flex;
+  justify-content: center;
+}
+
+.user_show_flex-item {
+  width: auto;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+//btn
+
+.btn-user-edit {
+  display: block;
+  width: 150px;
+  height: 30px;
+  background-color: #769164;
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px 0;
+}
+
+.btn-user-update {
+  display: block;
+  width: auto;
+  height: auto;
+  background-color: #928c36;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+}
+
+.btn-task-new {
+  display: block;
+  width: 150px;
+  height: 30px;
+  background-color: #769164;
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px 0;
+  margin-bottom: 20px;
+}
+
+.btn-task-create {
+  display: block;
+  width: auto;
+  height: auto;
+  background-color: #475950;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
+.btn-task-update, .btn-task-destroy {
+  display: block;
+  font-size: 15px;
+  width: 100px;
+  height: 30px;
+  background-color: #928c36;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-task-update:hover, .btn-task-destroy:hover {
+  background-color: #dccb18;
+}
+
+.btn-task-box {
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  background: #d7cf3a;
+  padding: 5px;
+  margin-right: 5px;
+  color: black;
+}
+
+.btn-task-box:hover {
+  background-color: #69821b;
+  color: white;
+}
+
+.btn-user-edit:hover, .btn-task-new:hover, .btn-done:hover {
+  background: #769164;
+  color: white;
 }
 
 .btn-done {
   display: inline-block;
-  border: 2px solid white;
-  border-color: #d8bfd8;
-  border-radius: 0;
-  background: #fff;
+  border: none;
+  border-radius: 5px;
+  background: #69821b;
   padding: 5px;
   margin-right: 10px;
+  color: white;
 }
 
-.btn-done:hover {
-  color: #fff;
-  background: thistle;
+
+
+//img
+
+.task-img {
+  width: 64px;
+  height: 64px;
+  margin: 20px;
 }
+
+.job_status-img {
+  width: 40px;
+  height: 40px;
+}
+
+
+
+.c-marker-task {
+    background: -webkit-linear-gradient(left, rgba(168,191,147,0.5) 50%, transparent 50%);
+    background: -moz-linear-gradient(left, rgba(168,191,147,0.5) 50%, transparent 50%);
+    background: linear-gradient(left, rgba(168,191,147,0.5) 50%, transparent 50%);
+    background-repeat: no-repeat;
+    background-size: 200% .8em;
+    background-position: 0% .5em;
+    transition: 2s;
+}
+
+
+
+
+
+
 

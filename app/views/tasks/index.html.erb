@@ -1,23 +1,49 @@
-<h1 style="font-size: 5rem;
-    color: pink;
-">Enjob</h1>
+<h1 class="task-h1">Task</h1>
 <div class="user_show_container">
   <div class="user_show_flex-item"><%= attachment_image_tag @user, :image, class: "icon" %></div>
   <div class="user_show_flex-item">
     <%= @user.name %>さん</br>
     Lv.<%= @user.level %><br>
-    <%= @user.job_status_i18n %></br>
+    <small>どうぶつランク</small></br>
+    <%= @user.job_status_i18n %>
+
+    <% if @user.level == 1 %>
+      <%= image_tag '毛虫アイコン.png', class: 'job_status-img' %>
+    <% elsif @user.level == 2 %>
+      <%= image_tag 'ネズミのアイコン1.png', class: 'job_status-img' %>
+    <% elsif @user.level == 3 %>
+      <%= image_tag '118000.png', class: 'job_status-img' %>
+    <% elsif @user.level == 4 %>
+      <%= image_tag '猫の無料アイコン2.png', class: 'job_status-img' %>
+    <% elsif @user.level == 5 %>
+      <%= image_tag '馬アイコン3.png', class: 'job_status-img' %>
+    <% elsif @user.level == 6 %>
+      <%= image_tag 'キリンアイコン3.png', class: 'job_status-img' %>
+    <% elsif @user.level == 7 %>
+      <%= image_tag 'ライオンの無料アイコン2.png', class: 'job_status-img' %>
+    <% elsif @user.level == 8 %>
+      <%= image_tag 'ユニコーンのアイコン1.png', class: 'job_status-img' %>
+    <% elsif @user.level == 9 %>
+      <%= image_tag '130653.png', class: 'job_status-img' %>
+    <% elsif @user.level == 10 %>
+      <%= image_tag '2272915.png', class: 'job_status-img' %>
+    <% else %>
+    <% end %>
+
+
     <%=@user.experience_point %>/<%= @thresold %></br>
 
-    <%= link_to "編集", edit_user_path(@user) %>
+    <progress value=<%= @user.experience_point.to_s %> max=<%= @thresold.to_s %> min=<%= @progress_min.to_s %> class="progress-bar"></progress>
+
+
+    <%= link_to edit_user_path(@user), class: 'btn-user-edit' do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <% end %>
   </div>
    <div class="user_show_flex_item">
     <a href="#modal-03">
-    カテゴリ追加
+    <i class="fa-regular fa-circle-question"></i>
     </a>
-    <% @categories.each do |category| %>
-      <%= category.name %>
-    <% end %>
   </div>
 </div>
 
@@ -25,14 +51,38 @@
   <a href="#!" class="modal-overlay"></a>
   <div class="modal-window">
     <div class="modal-content">
-     ★カテゴリー一覧</br>
-    <%= form_with model: @category, url: categories_path do |f| %>
-     <div class="form">
-       <%= f.label :name %>
-       <%= f.text_field :name, required: true %>
-     </div>
-       <%= f.submit "登録" %>
-    <% end %>
+    <div class="task-info-box">
+     <h1>Taskの使い方</h1>
+
+      <div class="task-info">
+        <%= image_tag 'デスクワークアイコン.png', class: 'task-img' %>
+        <div>まずは<span class="c-marker-task">NewTask</span>から新規作成！</div>
+
+        <%= image_tag '〆切のアイコン.png', class: 'task-img' %>
+        <div>
+          それぞれのタスクには<span class="c-marker-task">〆切と重要度</span>が設定できます！</br>
+          重要度は「やばい」「ふつう」「ぜんぜん」から選択。</br>
+          あなたにとっての重要度を選んでください。</br>
+        </div>
+      </div>
+      <div class="task-info">
+        <%= image_tag 'ポイントアイコン.png', class: 'task-img' %>
+        <div>
+          タスクの重要度にあわせてポイントをGET！</br>
+          <span class="c-marker-task">「やばい」→　15 Pt !</br>
+          「ふつう」→　10 Pt</br>
+          「ぜんぜん」→　5 Pt</span></br>
+        </div>
+
+        <%= image_tag '出世アイコン2.png', class: 'task-img' %>
+        <div>
+          貯めたPtに応じて、<span class="c-marker-task">Lvがアップします！</span></br>
+          <span class="c-marker-task">毎日のタスク処理が、少しでも楽しくなりますように…</span></br>
+        </div>
+      </div>
+    </div>
+
+
     </div>
     <a href="#!" class="modal-close">×</a>
   </div>
@@ -41,7 +91,7 @@
 
 
 <div class="task_new">
-  <%= link_to "Taskを作成する", new_task_path %>
+  <%= link_to "NewTask", new_task_path, class: 'btn-task-new' %>
 </div>
 
 <div class="task">
@@ -50,27 +100,31 @@
     <h4>Todo</h4>
     <% @tasks.each do |task| %>
       <div class="task-box">
-          <%= task.text %></br>
+          <%= task.text %>
+          <%= link_to 'Done', done_path(task), method: :post, class: 'btn-done' %></br>
           〆切
           <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
           重要度
           <%= task.importance_i18n %></br>
-          <%= link_to "EDIT", edit_task_path(task) %>
-          <%= link_to "DELETE", task_path(task), method: :delete %>
-          <%= button_to 'Done', done_path(task), method: :post, class: 'done-btn' %>
+          <div class="btn-task-link">
+            <%= link_to "EDIT", edit_task_path(task), class: 'btn-task-box' %>
+            <%= link_to "DELETE", task_path(task), method: :delete, class: 'btn-task-box' %>
+          </div>
       </div>
     <% end %></br>
       <h4>期限切れ</h4>
         <% @tasks_expired.each do |task| %>
           <div class="expired-task">
-            <%= task.text %></br>
+            <%= task.text %>
+            <%= link_to "Done", done_path(task), method: :post, class: 'btn-done' %>
              〆切
             <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
             重要度
             <%= task.importance_i18n %></br>
-            <%= link_to "EDIT", edit_task_path(task) %>
-            <%= link_to "DELETE", task_path(task), method: :delete %>
-            <%= link_to "DONE", done_path(task), method: :post, class: 'btn-done' %>
+            <div class="btn-task-link">
+            <%= link_to "EDIT", edit_task_path(task), class: 'btn-task-box' %>
+            <%= link_to "DELETE", task_path(task), method: :delete, class: 'btn-task-box' %>
+            </div>
           </div>
         <% end %>
   </div>

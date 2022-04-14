@@ -1,3 +1,99 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.event-show {
+  position: relative;
+}
+
+
+.event-new-h1 {
+  font-size: 5rem;
+  color: #f4b3c2;
+}
+
+.event-edit-h1 {
+  font-size: 5rem;
+  color: #ee827c;
+}
+
+.event-show-h1 {
+  font-size: 5rem;
+  color: #a25768;
+}
+
+.event-form {
+  margin-bottom: 20px;
+  color: #f4b3c2;
+}
+
+.event-show-text {
+  color: #a25768;
+  margin-bottom: 20px;
+}
+
+.event-title {
+  font-size: 5rem;
+  color: #f4b3c2;
+}
+
+.event-date {
+  font-size: 10rem;
+  color: #a25768;
+  position: absolute;
+  right: 0;
+}
+
+.event-show > a {
+  text-decoration: none;
+  color: #a25768;
+}
+
+
+
+a.btn-border {
+  border: 2px solid white;
+  border-color: #a25768;
+  border-radius: 0;
+  background: #fff;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+a.btn-border:hover {
+  color: #fff;
+  background: #a25768;
+}
+
+.btn-event-update {
+  border: 2px solid white;
+  border-color: #ee827c;
+  border-radius: 0;
+  background: #fff;
+  padding: 5px;
+  margin-right: 10px;
+  color: #ee827c;
+  cursor: pointer;
+}
+
+.btn-event-update:hover {
+  color: #fff;
+  background: #ee827c;
+}
+
+.btn-event-create {
+  border: 2px solid white;
+  border-color: #e5abbe;
+  border-radius: 0;
+  background: #fff;
+  padding: 5px;
+  margin-right: 10px;
+  color: #e5abbe;
+  cursor: pointer;
+}
+
+.btn-event-create:hover {
+  color: #fff;
+  background: #e5abbe;
+}

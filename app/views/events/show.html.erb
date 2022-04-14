@@ -1,23 +1,23 @@
-<div class="event">
+<div class="event-show">
 
-      <h1 class="event-title">Event</h1>
-      <div class="event-form">
+      <h1 class="event-show-h1">Event</h1>
+      <div class="event-show-text">
         <%= @event.title %></br>
         <%= @event.body %></br>
         <%= @event.start_date.strftime("%H:%M") %>　～　<%= @event.end_date.strftime("%H:%M") %></br>
       </div>
-      
+
       <%= link_to edit_event_path(@event), class: "btn btn-border" do %>
       <span>EDIT</span>
       <% end %>
-      
-      
+
+
       <%= link_to event_path(@event), class: "btn btn-border", method: :delete do %>
       <span>DESTROY</span>
       <% end %>
-      
+
       </br>
-      
+
       <div class="event-date">
         <%= @event.start_date.to_date.strftime('%m/%d') %>
       </div>

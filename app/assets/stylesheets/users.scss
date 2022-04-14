@@ -21,3 +21,35 @@
   color: #e4d2d8;
   font-size: 5rem;
 }
+
+
+//Ranking
+
+.ranking-h1 {
+  font-size: 5rem;
+  color: #68699b;
+}
+
+.ranking > table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.ranking > table th {
+  padding: 10px;
+  border-bottom: solid 4px #778ca3;
+  color: #778ca3;
+}
+
+.ranking > table td {
+  padding: 10px;
+  border-bottom: solid 1px #778ca3;
+}
+
+ .edit-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #928c36;
+}

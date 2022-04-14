@@ -6,7 +6,7 @@
   <a href="#!" class="modal-overlay"></a>
   <div class="modal-window">
     <div class="modal-content">
-      <h1>新規イベント追加</h1>
+      <h1 class="event-new-h1">NewEvent</h1>
       <%= form_with model: @event, url: events_path do |f| %>
       <div class="event-form">
         <%= f.label :title %>
@@ -25,7 +25,7 @@
         <%= f.time_field :end_date %>
       </div>
         <%= f.hidden_field :date %>
-        <%= f.submit "登録" %>
+        <%= f.submit "Create", class: 'btn-event-create' %>
       <% end %>
     </div>
     <a href="#!" class="modal-close">×</a>

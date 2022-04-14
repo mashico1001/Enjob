@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_05_092901) do
+ActiveRecord::Schema.define(version: 2022_04_14_092128) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
-
-# Could not dump table "events" because of following StandardError
-#   Unknown type 'reference' for column 'user_id'
 
   create_table "level_sets", force: :cascade do |t|
     t.integer "level"
@@ -39,8 +41,16 @@ ActiveRecord::Schema.define(version: 2022_04_05_092901) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-# Could not dump table "tasks" because of following StandardError
-#   Unknown type 'reference' for column 'category_id'
+  create_table "tasks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "text", null: false
+    t.integer "importance", default: 0, null: false
+    t.datetime "deadline_at", null: false
+    t.datetime "completion_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "row_order"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

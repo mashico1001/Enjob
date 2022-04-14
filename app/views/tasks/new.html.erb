@@ -1,23 +1,39 @@
-<h1>Task新規作成画面</h1>
-<% if @task.errors.any? %>
-  <%= @task.errors.count %>件のエラーが発生しました。
-  <% @task.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+<div class="task-new">
 
-<%= form_with model: @task, url: tasks_path, local: true do |f| %>
-<table class="task_new">
-  <tr><th><%= f.label :text, "Task" %></th><td><%= f.text_field :text %></td></tr>
-  <tr>
-    <th><%= f.label :deadline_at, "〆切" %></th>
-    <td><%= f.datetime_field :deadline_at %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :importance, "重要度" %></th>
-    <td><%= f.collection_radio_buttons :importance, Task.importances_i18n, :first, :last %>
-    </td>
-  </tr>
-  <tr><th></th><td><%= f.submit "START", class: "submit_to_task" %></td></tr>
-</table>
-<% end %>
+  <h1 class="task-new-h1">NewTask</h1>
+  <% if @task.errors.any? %>
+    <%= @task.errors.count %>件のエラーが発生しました。
+    <% @task.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+  <%= form_with model: @task, url: tasks_path, local: true do |f| %>
+  <table class="task_new">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= f.label :text, "Task" %></td>
+        <td><%= f.text_field :text %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :deadline_at, "〆切" %></td>
+        <td><%= f.datetime_field :deadline_at %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :importance, "重要度" %></td>
+        <td><%= f.collection_radio_buttons :importance, Task.importances_i18n, :first, :last %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= f.submit "Create!", class: "btn-task-create" %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
+</div>

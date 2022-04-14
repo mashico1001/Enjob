@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   belongs_to :user
   has_one :notification, dependent: :destroy
   
-  belongs_to :category
+ 
   
   validates :text, presence: true
   validates :deadline_at, presence: true
