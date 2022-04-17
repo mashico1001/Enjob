@@ -43,5 +43,7 @@
 - IDE：Cloud9
 
 ## 使用素材
-- [Font Free](https://fontfree.me/)
 - [ICOOON MONO](https://icooon-mono.com/)
+- [写真AC](https://www.photo-ac.com/)
+- [イラストAC](https://www.ac-illust.com/)
+- [お名前.com](https://www.onamae.com/)
