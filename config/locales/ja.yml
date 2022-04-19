@@ -1,4 +1,37 @@
 ja:
+  errors:
+    messages:
+      not_saved: '登録できませんでした'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: 'を入力してください'
+            email:
+              blank: 'を入力してください'
+            password:
+              blank: 'を入力してください'
+        task:
+          attributes:
+            text:
+              blank: 'を入力してください'
+            deadline_at:
+              blank: 'を入力してください'
+
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        name: 'ニックネーム'
+        email: 'メールアドレス'
+        password: 'パスワード'
+      task:
+        text: 'Task'
+        deadline_at: '〆切'
+
+
   enums:
     task:
       importance:
