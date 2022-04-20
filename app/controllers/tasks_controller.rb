@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  before_action :baria_user, {only: [:edit, :update, :destroy]}
+
   def index
     @user = current_user
 
@@ -110,6 +112,12 @@ class TasksController < ApplicationController
   private
   def task_params
     params.require(:task).permit(:text, :deadline_at, :importance, :completion_at)
+  end
+
+  def baria_user
+    unless Task.find(params[:id]).user.id.to_i == current_user.id
+      redirect_to tasks_path(current_user)
+    end
   end
 
 end

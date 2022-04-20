@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  before_action :baria_user, {only: [:show, :edit, :update, :destroy]}
+
   def index
     @events = current_user.events
     @event = Event.new
@@ -48,6 +50,12 @@ class EventsController < ApplicationController
     end
     permitted_params.delete(:date)
     permitted_params
+  end
+
+  def baria_user
+    unless Event.find(params[:id]).user.id.to_i == current_user.id
+      redirect_to events_path(current_user)
+    end
   end
 
 

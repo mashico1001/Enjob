@@ -10,12 +10,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :edit, :update]
 
-  resources :tasks, except: [:show]
+  resources :tasks, except: [:show] do
+    member do
+      post 'done'
+    end
+  end
 
   resources :notifications, only: [:index]
 
-
-
-  post '/tasks/:id/done' => 'tasks#done', as: 'done'
   resources :events
 end
