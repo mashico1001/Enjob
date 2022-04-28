@@ -13,15 +13,30 @@
   font-size: 5rem;
 }
 
-.login {
-  color: #e4d2d8;
-}
 
 .login-h1 {
   color: #e4d2d8;
   font-size: 5rem;
 }
 
+
+.btn-login {
+  display: block;
+  width: auto;
+  height: auto;
+  background-color: #c97586;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  backgroud-color: white;
+}
 
 //Ranking
 
