@@ -32,8 +32,8 @@
 
     <aside id="sidebar">
       <nav id="global-nav">
-        <% if user_signed_in? %>
         <ul>
+        <% if user_signed_in? %>
           <li><%= current_user.name %>さん</li>
           <li><%= attachment_image_tag current_user, :image, class: "icon" %></li>
         <% end %>
