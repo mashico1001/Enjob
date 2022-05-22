@@ -116,7 +116,7 @@
         <% @tasks_expired.each do |task| %>
           <div class="expired-task">
             <%= task.text %>
-            <%= link_to "Done", done_path(task), method: :post, class: 'btn-done' %>
+            <%= link_to "Done", done_task_path(task), method: :post, class: 'btn-done' %>
              〆切
             <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
             重要度
