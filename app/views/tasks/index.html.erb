@@ -101,7 +101,7 @@
     <% @tasks.each do |task| %>
       <div class="task-box">
           <%= task.text %>
-          <%= link_to 'Done', done_path(task), method: :post, class: 'btn-done' %></br>
+          <%= link_to 'Done', done_task_path(task), method: :post, class: 'btn-done' %></br>
           〆切
           <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
           重要度
