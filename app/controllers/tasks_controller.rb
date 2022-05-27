@@ -20,12 +20,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def sort
-    @task = Task.find(params[:task_id])
-    @task.update(task_params)
-    render nothing: true
-  end
-
   def new
     @task = Task.new
   end
