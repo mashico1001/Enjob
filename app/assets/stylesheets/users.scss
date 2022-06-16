@@ -19,6 +19,21 @@
   font-size: 5rem;
 }
 
+.btn-signup {
+  display: block;
+  width: auto;
+  height: auto;
+  background-color: #00aba2;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
 
 .btn-login {
   display: block;
@@ -27,7 +42,7 @@
   background-color: #c97586;
   border-radius: 5px;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   border: none;
   color: white;
   margin-top: 10px;
