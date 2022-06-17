@@ -37,10 +37,18 @@ body {
   padding: 20px 40px;
 }
 
+
+.logo {
+  font-size: 3rem;
+}
+
 ul {
   list-style: none;
 }
 
+.menu-a {
+  font-size: 20px;
+}
 
 
 .modal-wrapper {
@@ -137,7 +145,7 @@ ul {
 #sidebar {
   font-family: 'Hubballi', cursive;
   font-size: 15px;
-  padding-top: 120px;
+  padding-top: 160px;
   width: 260px;
   height: 100%;
   position: fixed;

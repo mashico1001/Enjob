@@ -19,7 +19,7 @@
   <body data-turbolinks="false">
 
     <header id = "global-head">
-      <h1 id="brand-logo">Enjob</h1>
+      <h1 id="brand-logo" class="logo">Enjob</h1>
     </header>
 
     <div id="nav-toggle">
@@ -37,23 +37,23 @@
           <li><%= current_user.name %>さん</li>
           <li><%= attachment_image_tag current_user, :image, class: "icon" %></li>
         <% end %>
-          <li><%= link_to "TOP", root_path %></li>
+          <li><%= link_to "TOP", root_path, class: "menu-a" %></li>
         <% if user_signed_in? %>
 
           <li>
-              <%= link_to tasks_path do %>
+              <%= link_to tasks_path, class: "menu-a" do %>
               <% if unchecked_notifications.any? %>
                 <i class="fa-solid fa-heart"></i>
               <% end %>
               Task
               <% end %>
           </li>
-          <li><%= link_to "Event", events_path %></li>
-          <li><%= link_to "Ranking", users_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Event", events_path, class: "menu-a" %></li>
+          <li><%= link_to "Ranking", users_path, class: "menu-a" %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, class: "menu-a", method: :delete %></li>
         <% else %>
-          <li><%= link_to "Log in", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Log in", new_user_session_path, class: "menu-a" %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: "menu-a" %></li>
         <% end %>
           <br>
         </ul>
