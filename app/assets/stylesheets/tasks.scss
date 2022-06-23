@@ -33,16 +33,17 @@
 
 .task {
   display: flex;
+  justify-content: space-between;
 }
 
 .task_index_container {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 40%;
 }
 
 .done-task_index_container {
-  width: 500px;
+  width: 40%;
 }
 
 .task_index_container > h4, .done-task_index_container > h4 {
@@ -54,17 +55,26 @@
   display: inline-block;
   padding: 10px;
   margin: 20px 20px;
-  width: 400px;
+  width: 100%;
   height: auto;
   border-radius: 10px;
   background-color: #d7cf3a; /* 背景色 */
   box-shadow: 0 0 5px 1px #c5c56a; /* 影 */
 }
 
+.task-box, .expired-task {
+  position: relative;
+}
+
+
 .btn-task-link {
   display: inline;
-  margin-left: 200px;
+  position: absolute;
+  right: 10%;
+  top: 60%;
 }
+
+
 
 //user-info
 
@@ -87,6 +97,22 @@
 }
 
 //btn
+
+
+.btn-task-box {
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  background: #d7cf3a;
+  padding: 5px;
+  margin-right: 5px;
+  color: black;
+}
+
+.btn-task-box:hover {
+  background-color: #69821b;
+  color: white;
+}
 
 .btn-user-edit {
   display: block;
@@ -168,20 +194,7 @@
   background-color: #dccb18;
 }
 
-.btn-task-box {
-  display: inline-block;
-  border: none;
-  border-radius: 5px;
-  background: #d7cf3a;
-  padding: 5px;
-  margin-right: 5px;
-  color: black;
-}
 
-.btn-task-box:hover {
-  background-color: #69821b;
-  color: white;
-}
 
 .btn-user-edit:hover, .btn-task-new:hover, .btn-done:hover {
   background: #769164;
@@ -229,6 +242,12 @@
 @media screen and (max-width: 900px) {
   .task {
     display: block;
+  }
+  
+  .task_index_container,
+  .done-task_index_container {
+    width: 100%;
+    margin: 0 auto;
   }
 }
 

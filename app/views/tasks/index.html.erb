@@ -101,26 +101,26 @@
     <% @tasks.each do |task| %>
       <div class="task-box">
           <%= task.text %>
-          <%= link_to 'Done', done_task_path(task), method: :post, class: 'btn-done' %></br>
+          <%= link_to 'Done', done_task_path(task), method: :post, class: 'btn-done' %><br>
           〆切
-          <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
+          <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %><br>
           重要度
-          <%= task.importance_i18n %></br>
+          <%= task.importance_i18n %><br>
           <div class="btn-task-link">
             <%= link_to "EDIT", edit_task_path(task), class: 'btn-task-box' %>
             <%= link_to "DELETE", task_path(task), method: :delete, class: 'btn-task-box' %>
           </div>
       </div>
-    <% end %></br>
+    <% end %><br>
       <h4>期限切れ</h4>
         <% @tasks_expired.each do |task| %>
           <div class="expired-task">
             <%= task.text %>
-            <%= link_to "Done", done_task_path(task), method: :post, class: 'btn-done' %>
+            <%= link_to "Done", done_task_path(task), method: :post, class: 'btn-done' %><br>
              〆切
-            <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %></br>
+            <%= task.deadline_at.strftime("%Y/%m/%d %H:%M") %><br>
             重要度
-            <%= task.importance_i18n %></br>
+            <%= task.importance_i18n %><br>
             <div class="btn-task-link">
             <%= link_to "EDIT", edit_task_path(task), class: 'btn-task-box' %>
             <%= link_to "DELETE", task_path(task), method: :delete, class: 'btn-task-box' %>
