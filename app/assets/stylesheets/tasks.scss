@@ -131,7 +131,7 @@
   background-color: #928c36;
   border-radius: 5px;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   border: none;
   color: white;
   margin-top: 10px;
@@ -161,7 +161,7 @@
   background-color: #475950;
   border-radius: 5px;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   border: none;
   color: white;
   margin-top: 10px;
@@ -178,12 +178,11 @@
 .btn-task-update, .btn-task-destroy {
   display: block;
   font-size: 15px;
-  width: 100px;
-  height: 30px;
+  width: 70px;
   background-color: #928c36;
   border-radius: 5px;
+  line-height: 40px;
   text-align: center;
-  padding: 5px;
   border: none;
   color: white;
   margin-top: 10px;
